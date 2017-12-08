@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#Stopping all running containers
-docker stop $(docker ps -a -q)
-
-docker rm -f $(docker ps -a -q)
 
 #Starting Pushgateway
 docker run -d -p 100.98.24.211:9091:9091 prom/pushgateway
