@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Prometheus Time Series Collection and Processing Server</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico?v=3afb3fffa3a29c3de865e1172fb740442e9d0133">
+    <script src="/static/vendor/js/jquery.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/bootstrap-3.3.1/js/bootstrap.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+
+    <link type="text/css" rel="stylesheet" href="/static/vendor/bootstrap-3.3.1/css/bootstrap.min.css?v=3afb3fffa3a29c3de865e1172fb740442e9d0133">
+    <link type="text/css" rel="stylesheet" href="/static/css/prometheus.css?v=3afb3fffa3a29c3de865e1172fb740442e9d0133">
+
+    <script>
+      var PATH_PREFIX = "";
+      var BUILD_VERSION = "3afb3fffa3a29c3de865e1172fb740442e9d0133";
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+
+    
+    <link type="text/css" rel="stylesheet" href="/static/css/graph.css?v=3afb3fffa3a29c3de865e1172fb740442e9d0133">
+
+    <link type="text/css" rel="stylesheet" href="/static/vendor/rickshaw/rickshaw.min.css?v=3afb3fffa3a29c3de865e1172fb740442e9d0133">
+    <link type="text/css" rel="stylesheet" href="/static/vendor/eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.min.css?v=3afb3fffa3a29c3de865e1172fb740442e9d0133">
+
+    <script src="/static/vendor/rickshaw/vendor/d3.v3.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/rickshaw/vendor/d3.layout.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/rickshaw/rickshaw.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/moment/moment.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/bootstrap3-typeahead/bootstrap3-typeahead.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/fuzzy/fuzzy.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+
+    <script src="/static/vendor/mustache/mustache.min.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/js/jquery.selection.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+    <script src="/static/vendor/js/jquery.hotkeys.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+
+    <script src="/static/js/graph.js?v=3afb3fffa3a29c3de865e1172fb740442e9d0133"></script>
+
+    <script id="graph_template" type="text/x-handlebars-template"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Prometheus</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            
+            
+            <li><a href="/alerts">Alerts</a></li>
+            <li><a href="/graph">Graph</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Status <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/status">Runtime &amp; Build Information</a></li>
+                <li><a href="/flags">Command-Line Flags</a></li>
+                <li><a href="/config">Configuration</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/targets">Targets</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://prometheus.io" target="_blank">Help</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <div id="graph_container" class="container-fluid">
+    </div>
+    <div class="container-fluid">
+      <div><input class="btn btn-primary" type="submit" value="Add Graph" id="add_graph"></div>
+    </div>
+
+  </body>
+</html>
+
+
+
